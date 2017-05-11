@@ -1,0 +1,82 @@
+{
+  "intents": [
+    {
+      "intent": "Addition1Intent",
+	  "slots": [
+        {
+          "name": "Num1",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Num2",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
+    },
+    {
+      "intent": "Addition2Intent",
+    "slots": [
+        {
+          "name": "Num1",
+          "type": "AMAZON.NUMBER"
+        },
+         {
+          "name": "Dec1",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Num2",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
+    },
+    {
+      "intent": "Addition3Intent",
+    "slots": [
+        {
+          "name": "Num1",
+          "type": "AMAZON.NUMBER"
+        },{
+          "name": "Dec1",
+          "type": "AMAZON.NUMBER"
+        },{
+          "name": "Num2",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Dec2",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
+    },
+    {
+      "intent": "Addition4Intent",
+    "slots": [
+        {
+          "name": "Num1",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Num2",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "Dec2",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
