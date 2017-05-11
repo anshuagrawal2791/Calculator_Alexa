@@ -1,0 +1,14 @@
+start calculator
+
+
+add 5 and 5
+
+add 5 point 3 and 5
+
+add 5 point 6 and 78 point 2
+
+add 2 and 5 point 2
+
+add 4 to it
+add 7.3 to it
+

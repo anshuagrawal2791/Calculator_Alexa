@@ -2,7 +2,7 @@
   "intents": [
     {
       "intent": "AdditionOneIntent",
-    "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
@@ -11,36 +11,38 @@
           "name": "NumTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]      
-    },{
+      ]
+    },
+    {
       "intent": "AddToAnswerOne",
-	  "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
         }
-      ]      
+      ]
     },
     {
       "intent": "AddToAnswerTwo",
-    "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
         },
-         {
+        {
           "name": "DecOne",
           "type": "AMAZON.NUMBER"
         }
-      ]      
-    },{
+      ]
+    },
+    {
       "intent": "AdditionTwoIntent",
-    "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
         },
-         {
+        {
           "name": "DecOne",
           "type": "AMAZON.NUMBER"
         },
@@ -48,18 +50,20 @@
           "name": "NumTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]      
+      ]
     },
     {
       "intent": "AdditionThreeIntent",
-    "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
-        },{
+        },
+        {
           "name": "DecOne",
           "type": "AMAZON.NUMBER"
-        },{
+        },
+        {
           "name": "NumTwo",
           "type": "AMAZON.NUMBER"
         },
@@ -67,11 +71,11 @@
           "name": "DecTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]      
+      ]
     },
     {
       "intent": "AdditionFourIntent",
-    "slots": [
+      "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
@@ -84,13 +88,15 @@
           "name": "DecTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]      
+      ]
     },
     {
       "intent": "AMAZON.StartOverIntent"
-    },{
+    },
+    {
       "intent": "AMAZON.YesIntent"
-    },{
+    },
+    {
       "intent": "AMAZON.NoIntent"
     },
     {

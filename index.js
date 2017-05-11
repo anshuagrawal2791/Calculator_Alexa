@@ -209,7 +209,7 @@ const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION, {
     const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10));
     if(answerSlotIsInt){
         var curAnswer = parseFloat(this.attributes.curAnswer);
-        var history = parseFloat(this.attributes.history);
+        var history = this.attributes.history;
         
         var first = parseFloat(intent.slots.NumOne.value);
         var ans = curAnswer + first;
@@ -239,10 +239,10 @@ const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION, {
     const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.DecOne.value));
     if(answerSlotIsInt){
         var curAnswer = parseFloat(this.attributes.curAnswer);
-        var history = parseFloat(this.attributes.history);
+        var history = this.attributes.history;
         var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
         var ans = curAnswer + first;
-        history+= ` plus ${first}`;
+        history += ` plus ${first}`;
         let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
         Object.assign(this.attributes, {
             speechOutput: speechOutput,
