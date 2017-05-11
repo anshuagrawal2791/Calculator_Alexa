@@ -1,4 +1,4 @@
-Addition1Intent Add {Num1} and {Num2}
-Addition2Intent Add {Num1} point {Dec1} and {Num2}
-Addition3Intent Add {Num1} point {Dec1} and {Num2} point {Dec2}
-Addition4Intent Add {Num1} and {Num2} point {Dec2}
+AdditionOneIntent Add {NumOne} and {NumTwo}
+AdditionTwoIntent Add {NumOne} point {DecOne} and {NumTwo}
+AdditionThreeIntent Add {NumOne} point {DecOne} and {NumTwo} point {DecTwo}
+AdditionFourIntent Add {NumOne} and {NumTwo} point {DecTwo}
