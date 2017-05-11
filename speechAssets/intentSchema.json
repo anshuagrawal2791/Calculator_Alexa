@@ -2,7 +2,7 @@
   "intents": [
     {
       "intent": "AdditionOneIntent",
-	  "slots": [
+    "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
@@ -12,8 +12,28 @@
           "type": "AMAZON.NUMBER"
         }
       ]      
+    },{
+      "intent": "AddToAnswerOne",
+	  "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
     },
     {
+      "intent": "AddToAnswerTwo",
+    "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+         {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER"
+        }
+      ]      
+    },{
       "intent": "AdditionTwoIntent",
     "slots": [
         {
@@ -68,6 +88,10 @@
     },
     {
       "intent": "AMAZON.StartOverIntent"
+    },{
+      "intent": "AMAZON.YesIntent"
+    },{
+      "intent": "AMAZON.NoIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"

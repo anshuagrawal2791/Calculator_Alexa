@@ -2,3 +2,13 @@ AdditionOneIntent Add {NumOne} and {NumTwo}
 AdditionTwoIntent Add {NumOne} point {DecOne} and {NumTwo}
 AdditionThreeIntent Add {NumOne} point {DecOne} and {NumTwo} point {DecTwo}
 AdditionFourIntent Add {NumOne} and {NumTwo} point {DecTwo}
+
+AddToAnswerOne Add {NumOne} to answer
+AddToAnswerOne Add {NumOne} to it
+AddToAnswerOne Add {NumOne} 
+AddToAnswerOne Add {NumOne} to the output
+
+AddToAnswerTwo Add {NumOne} point {DecOne} to answer
+AddToAnswerTwo Add {NumOne} point {DecOne} to it
+AddToAnswerTwo Add {NumOne} point {DecOne} 
+AddToAnswerTwo Add {NumOne} point {DecOne} to the output
