@@ -10,5 +10,8 @@
     "\"Alexa\""
   ],
   "author": "Anshuman",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "conflate": "^1.4.0"
+  }
 }

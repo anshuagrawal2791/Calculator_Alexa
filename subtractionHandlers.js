@@ -5,7 +5,7 @@ const GAME_STATES = {
 };
 module.exports =
 {
-    'AdditionOneIntent': function () {
+    'SubtractionOneIntent': function () {
         // handleUserGuess.call(this, false);
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value;
@@ -39,7 +39,7 @@ module.exports =
 // }
 
     },
-    'AdditionTwoIntent': function () {
+    'SubtractionTwoIntent': function () {
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecOne&&intent.slots.DecOne.value;
         const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecOne.value));
@@ -65,7 +65,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'AdditionThreeIntent': function () {
+    'SubtractionThreeIntent': function () {
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecOne&&intent.slots.DecOne.value&&intent.slots.DecTwo&&intent.slots.DecTwo.value;
         const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecOne.value)&&parseInt(intent.slots.DecTwo.value));
@@ -92,7 +92,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'AdditionFourIntent': function () {
+    'SubtractionFourIntent': function () {
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecTwo&&intent.slots.DecTwo.value;
         const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecTwo.value));
@@ -118,7 +118,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'AddToAnswerOne': function(){
+    'SubtractFromAnswerOne': function(){
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value;
         const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10));
@@ -147,7 +147,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'AddToAnswerTwo': function(){
+    'SubtractFromAnswerTwo': function(){
 
         var intent = this.event.request.intent;
         const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value&&intent.slots.DecOne&&intent.slots.DecOne.value;
