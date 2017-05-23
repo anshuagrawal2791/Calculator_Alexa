@@ -13,7 +13,7 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseInt(intent.slots.NumOne.value,10);
             var second = parseInt(intent.slots.NumTwo.value,10);
-            let ans = first + second;
+            let ans = first - second;
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed();
             let speechOutput = `answer is ${answerToSpeak}. What do you want me to do next?`;
@@ -24,7 +24,7 @@ module.exports =
                 history: `${first} plus ${second}`
 
             });
-            console.log("addition one called");
+            console.log("subtraction one called");
             console.log(speechOutput);
 
             this.emit(':askWithCard', speechOutput);
@@ -46,7 +46,7 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseInt(intent.slots.NumTwo.value);
-            let ans = parseFloat(first+second);
+            let ans = parseFloat(first - second);
 
             var answerToSpeak = ans
             answerToSpeak=answerToSpeak.toFixed(intent.slots.DecOne.value.length);
@@ -58,7 +58,7 @@ module.exports =
                 history: `${first} plus ${second}`
 
             });
-            console.log("addition two called");
+            console.log("subtraction two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
@@ -72,7 +72,7 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first + second);
+            let ans = parseFloat(first - second);
 
 
             var answerToSpeak = ans;
@@ -85,7 +85,7 @@ module.exports =
                 history: `${first} plus ${second}`
 
             });
-            console.log("addition three called");
+            console.log("subtraction three called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
@@ -99,7 +99,7 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first+second);
+            let ans = parseFloat(first - second);
 
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed(intent.slots.DecTwo.value.length);
@@ -111,7 +111,7 @@ module.exports =
                 history: `${first} plus ${second}`
 
             });
-            console.log("addition four called");
+            console.log("subtraction four called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
@@ -127,7 +127,7 @@ module.exports =
             var history = this.attributes.history;
 
             var first = parseFloat(intent.slots.NumOne.value);
-            var ans = curAnswer + first;
+            var ans = curAnswer - first;
             history+= ` plus ${first}`;
             let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
             Object.assign(this.attributes, {
@@ -138,7 +138,7 @@ module.exports =
 
 
             });
-            console.log("addToAnswer One called");
+            console.log("SubtractFromAnswer One called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 
@@ -156,7 +156,7 @@ module.exports =
             var curAnswer = parseFloat(this.attributes.curAnswer);
             var history = this.attributes.history;
             var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
-            var ans = curAnswer + first;
+            var ans = curAnswer - first;
             history += ` plus ${first}`;
             let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
             Object.assign(this.attributes, {
@@ -166,7 +166,7 @@ module.exports =
                 history: history
 
             });
-            console.log("addToAnswer Two called");
+            console.log("SubtractFromAnswer Two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 

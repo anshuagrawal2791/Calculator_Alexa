@@ -1,13 +1,21 @@
-AdditionOneIntent Add {NumOne} and {NumTwo}
-AdditionTwoIntent Add {NumOne} point {DecOne} and {NumTwo}
-AdditionThreeIntent Add {NumOne} point {DecOne} and {NumTwo} point {DecTwo}
-AdditionFourIntent Add {NumOne} and {NumTwo} point {DecTwo}
-AddToAnswerOne plus {NumOne}
-AddToAnswerOne plus {NumOne} 
-AddToAnswerOne plus {NumOne} 
+AdditionOneIntent What's {NumOne} plus {NumTwo}
+AdditionTwoIntent What's {NumOne} point {DecOne} plus {NumTwo}
+AdditionThreeIntent What's {NumOne} point {DecOne} plus {NumTwo} point {DecTwo}
+AdditionFourIntent What's {NumOne} plus {NumTwo} point {DecTwo}
+
+AddToAnswerOne Add {NumOne} to answer
+AddToAnswerOne Add {NumOne} to it
+AddToAnswerTwo Add {NumOne} point {DecOne} to answer
+AddToAnswerTwo Add {NumOne} point {DecOne} to it
 
 
-AddToAnswerTwo plus {NumOne} point {DecOne} 
-AddToAnswerTwo plus {NumOne} point {DecOne} 
-AddToAnswerTwo plus {NumOne} point {DecOne} 
+SubtractionOneIntent What's {NumOne} minus {NumTwo}
+SubtractionTwoIntent What's {NumOne} point {DecOne} minus {NumTwo}
+SubtractionThreeIntent What's {NumOne} point {DecOne} minus {NumTwo} point {DecTwo}
+SubtractionFourIntent What's {NumOne} minus {NumTwo} point {DecTwo}
+
+SubtractFromAnswerOne Subtract {NumOne} from answer
+SubtractFromAnswerOne Subtract {NumOne} from it
+SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from answer
+SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from it
 

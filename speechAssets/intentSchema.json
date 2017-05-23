@@ -1,7 +1,6 @@
 {
   "intents": [
     {
-      "intent": "AdditionOneIntent",
       "slots": [
         {
           "name": "NumOne",
@@ -11,19 +10,19 @@
           "name": "NumTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "AdditionOneIntent"
     },
     {
-      "intent": "AddToAnswerOne",
       "slots": [
         {
           "name": "NumOne",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "SubtractFromAnswerOne"
     },
     {
-      "intent": "AddToAnswerTwo",
       "slots": [
         {
           "name": "NumOne",
@@ -33,10 +32,10 @@
           "name": "DecOne",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "SubtractFromAnswerTwo"
     },
     {
-      "intent": "AdditionTwoIntent",
       "slots": [
         {
           "name": "NumOne",
@@ -50,10 +49,10 @@
           "name": "NumTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "AdditionTwoIntent"
     },
     {
-      "intent": "AdditionThreeIntent",
       "slots": [
         {
           "name": "NumOne",
@@ -71,10 +70,10 @@
           "name": "DecTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "AdditionThreeIntent"
     },
     {
-      "intent": "AdditionFourIntent",
       "slots": [
         {
           "name": "NumOne",
@@ -88,7 +87,97 @@
           "name": "DecTwo",
           "type": "AMAZON.NUMBER"
         }
-      ]
+      ],
+      "intent": "AdditionFourIntent"
+    },{
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "SubtractionOneIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "AddToAnswerOne"
+    },
+    {
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "AddToAnswerTwo"
+    },
+    {
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "SubtractionTwoIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "SubtractionThreeIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER"
+        }
+      ],
+      "intent": "SubtractionFourIntent"
     },
     {
       "intent": "AMAZON.StartOverIntent"
