@@ -64,7 +64,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
         // }
 
         // speechOutput += repromptText;
-
+        console.log(additionHandlers.handler);
         Object.assign(this.attributes, {
             speechOutput: speechOutput,
             repromptText,
@@ -90,10 +90,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
     },
 });
 
-const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION, {
-  additionHandlers 
-
-});
+const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION,require('./Handlers'));
 const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
     'helpTheUser': function (newGame) {
         const askMessage = newGame ? 'Would you like to start playing?' : 'To repeat the last question, say, repeat. Would you like to keep playing?';
