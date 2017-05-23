@@ -21,7 +21,7 @@ module.exports =
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: ans,
-                history: `${first} plus ${second}`
+                history: `${first} minus ${second}`
 
             });
             console.log("subtraction one called");
@@ -55,7 +55,7 @@ module.exports =
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: ans,
-                history: `${first} plus ${second}`
+                history: `${first} minus ${second}`
 
             });
             console.log("subtraction two called");
@@ -82,7 +82,7 @@ module.exports =
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: ans,
-                history: `${first} plus ${second}`
+                history: `${first} minus ${second}`
 
             });
             console.log("subtraction three called");
@@ -108,7 +108,7 @@ module.exports =
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: ans,
-                history: `${first} plus ${second}`
+                history: `${first} minus ${second}`
 
             });
             console.log("subtraction four called");
@@ -128,7 +128,7 @@ module.exports =
 
             var first = parseFloat(intent.slots.NumOne.value);
             var ans = curAnswer - first;
-            history+= ` plus ${first}`;
+            history+= ` minus ${first}`;
             let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
@@ -157,7 +157,7 @@ module.exports =
             var history = this.attributes.history;
             var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
             var ans = curAnswer - first;
-            history += ` plus ${first}`;
+            history += ` minus ${first}`;
             let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
