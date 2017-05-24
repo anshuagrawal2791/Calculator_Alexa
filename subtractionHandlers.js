@@ -3,6 +3,16 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+function decimalPlaces(num) {
+    var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+    if (!match) { return 0; }
+    return Math.max(
+        0,
+        // Number of digits right of decimal point.
+        (match[1] ? match[1].length : 0)
+        // Adjust for scientific notation.
+        - (match[2] ? +match[2] : 0));
+}
 module.exports =
 {
     'SubtractionOneIntent': function () {
@@ -20,7 +30,7 @@ module.exports =
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
@@ -54,7 +64,7 @@ module.exports =
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
@@ -81,7 +91,7 @@ module.exports =
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
@@ -107,7 +117,7 @@ module.exports =
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
@@ -127,13 +137,15 @@ module.exports =
             var history = this.attributes.history;
 
             var first = parseFloat(intent.slots.NumOne.value);
-            var ans = curAnswer - first;
+            var ans = parseFloat(curAnswer - first);
+            var answerToSpeak = ans;
+            answerToSpeak=answerToSpeak.toFixed(decimalPlaces(curAnswer));
             history+= ` minus ${first}`;
-            let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
+            let speechOutput = `answer is now ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history:history
 
 
@@ -156,13 +168,15 @@ module.exports =
             var curAnswer = parseFloat(this.attributes.curAnswer);
             var history = this.attributes.history;
             var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
-            var ans = curAnswer - first;
+            var ans = parseFloat(curAnswer - first);
+            var answerToSpeak = ans;
+            answerToSpeak=answerToSpeak.toFixed(Math.max(decimalPlaces(curAnswer),intent.slots.DecOne.value.length));
             history += ` minus ${first}`;
-            let speechOutput = `answer is now ${ans}. What do you want me to do next?`;
+            let speechOutput = `answer is now ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
-                curAnswer: ans,
+                curAnswer: answerToSpeak,
                 history: history
 
             });
