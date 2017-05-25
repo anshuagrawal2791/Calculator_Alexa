@@ -206,7 +206,7 @@ module.exports =
 	this.emitWithState('StartGame', false);
 },
 'AMAZON.RepeatIntent': function () {
-	this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptText);
+	this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptText);
 },
 'AMAZON.HelpIntent': function () {
 	this.handler.state = GAME_STATES.HELP;

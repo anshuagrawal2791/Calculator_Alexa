@@ -154,6 +154,131 @@
       "samples": []
     },
     {
+      "name": "DivideAnswerByOne",
+      "samples": [
+        "Divide answer by {NumOne}",
+        "Divide it by {NumOne}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "DivideAnswerByTwo",
+      "samples": [
+        "Divide answer by {NumOne} point {DecOne}",
+        "Divide it by {NumOne} point {DecOne}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "DivisionFourIntent",
+      "samples": [
+        "What's {NumOne} divided by {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "DivisionOneIntent",
+      "samples": [
+        "What's {NumOne} divided by {NumTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "DivisionThreeIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} divided by {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "DivisionTwoIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} divided by {NumTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
       "name": "MultiplicationFourIntent",
       "samples": [
         "What's {NumOne} multiplied by {NumTwo} point {DecTwo}"

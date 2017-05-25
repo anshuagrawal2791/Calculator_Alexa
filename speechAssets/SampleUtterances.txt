@@ -24,6 +24,19 @@ SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from answer
 SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from it
 
 
+
+
+DivisionOneIntent What's {NumOne} divided by {NumTwo}
+DivisionTwoIntent What's {NumOne} point {DecOne} divided by {NumTwo}
+DivisionThreeIntent What's {NumOne} point {DecOne} divided by {NumTwo} point {DecTwo}
+DivisionFourIntent What's {NumOne} divided by {NumTwo} point {DecTwo}
+
+DivideAnswerByOne Divide answer by {NumOne}
+DivideAnswerByOne Divide it by {NumOne}
+DivideAnswerByTwo Divide answer by {NumOne} point {DecOne}
+DivideAnswerByTwo Divide it by {NumOne} point {DecOne}
+
+
 MultiplicationOneIntent What's {NumOne} multiplied by {NumTwo}
 MultiplicationTwoIntent What's {NumOne} point {DecOne} multiplied by {NumTwo}
 MultiplicationThreeIntent What's {NumOne} point {DecOne} multiplied by {NumTwo} point {DecTwo}

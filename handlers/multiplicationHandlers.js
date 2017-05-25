@@ -201,59 +201,5 @@ module.exports =
             this.emitWithState('Unhandled');
         }
 
-    },
-    'AMAZON.StartOverIntent': function () {
-        this.handler.state = GAME_STATES.START;
-        this.emitWithState('StartGame', false);
-    },
-    'AMAZON.RepeatIntent': function () {
-        this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptText);
-    },
-    'AMAZON.HelpIntent': function () {
-        this.handler.state = GAME_STATES.HELP;
-        this.emitWithState('helpTheUser', false);
-    },
-    'AMAZON.StopIntent': function () {
-        // this.handler.state = GAME_STATES.HELP;
-        // const speechOutput = 'Ending calculator';
-        this.emitWithState('AMAZON.SessionEndedRequest');
-    },
-// 'AMAZON.YesIntent': function () {
-//     if (this.attributes.speechOutput && this.attributes.repromptText) {
-//         this.handler.state = GAME_STATES.CALCULATION;
-//         this.emitWithState('AMAZON.RepeatIntent');
-//     } else {
-//         this.handler.state = GAME_STATES.START;
-//         this.emitWithState('StartGame', false);
-//     }
-// },
-    'AMAZON.CancelIntent': function () {
-        this.emit(':tell', 'Ok, let\'s play again soon.');
-    },
-    'Unhandled': function () {
-        // this.handler.state = GAME_STATES.START;
-        // this.emitWithState('StartGame', false);
-        console.log("UNHANDLED");
-        console.log(this.event.request.intent);
-        var curAnswer = parseFloat(this.attributes.curAnswer);
-        var history = this.attributes.history;
-        let speechOutput = `Sorry! I didn't understand what you said`;
-        Object.assign(this.attributes, {
-            speechOutput: speechOutput,
-            speechOutput,
-            curAnswer: answerToSpeak,
-            history: history
-
-        });
-        // console.log("MultiplyByAnswer Two called");
-        console.log(speechOutput);
-        this.emit(':askWithCard', speechOutput);
-        
-// console.log(speechOutput);
-    },
-    'AMAZON.SessionEndedRequest': function () {
-        const speechOutput = 'OK, Goodbye!';
-        this.handler.state = GAME_STATES.START;
-        this.emit(':tell', speechOutput);
     }
 }

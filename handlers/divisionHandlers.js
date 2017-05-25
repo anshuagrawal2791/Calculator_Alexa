@@ -3,6 +3,7 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+const DEFAULT_DECIMAL_PLACES = 4;
 function decimalPlaces(num) {
     var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
     if (!match) { return 0; }
@@ -15,7 +16,7 @@ function decimalPlaces(num) {
 }
 module.exports =
 {
-    'SubtractionOneIntent': function () {
+    'DivisionOneIntent': function () {
         // handleUserGuess.call(this, false);
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
@@ -25,18 +26,20 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseInt(intent.slots.NumOne.value,10);
             var second = parseInt(intent.slots.NumTwo.value,10);
-            let ans = first - second;
+            let ans = parseFloat(first / second);
             var answerToSpeak = ans;
-            answerToSpeak=answerToSpeak.toFixed();
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(5);
+            let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} divided by ${second}`
 
             });
-            console.log("subtraction one called");
+            console.log("Division one called");
             console.log(speechOutput);
 
             this.emit(':askWithCard', speechOutput);
@@ -44,14 +47,14 @@ module.exports =
             this.emitWithState('Unhandled');
         }
 // if(answerSlotIsInt){
-// 	intent.emit(':tell',`${first} minus ${second} is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
+// 	intent.emit(':tell',`${first} divided by ${second} is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
 // }
 // else{
 // 	intent.emit(':tell',`sorry! I didn't quite get that`);
 // }
 
     },
-    'SubtractionTwoIntent': function () {
+    'DivisionTwoIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -60,26 +63,28 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseInt(intent.slots.NumTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first / second);
 
             var answerToSpeak = ans
-            answerToSpeak=answerToSpeak.toFixed(intent.slots.DecOne.value.length);
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(intent.slots.DecOne.value.length);
+            let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} divided by ${second}`
 
             });
-            console.log("subtraction two called");
+            console.log("Division two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractionThreeIntent': function () {
+    'DivisionThreeIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -88,27 +93,29 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first / second);
 
 
             var answerToSpeak = ans;
-            answerToSpeak=answerToSpeak.toFixed(Math.max(intent.slots.DecOne.value.length,intent.slots.DecTwo.value.length));
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(Math.max(intent.slots.DecOne.value.length,intent.slots.DecTwo.value.length));
+            let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} divided by ${second}`
 
             });
-            console.log("subtraction three called");
+            console.log("Division three called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractionFourIntent': function () {
+    'DivisionFourIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -117,26 +124,28 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first / second);
 
             var answerToSpeak = ans;
-            answerToSpeak=answerToSpeak.toFixed(intent.slots.DecTwo.value.length);
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(intent.slots.DecTwo.value.length);
+            let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} divided by ${second}`
 
             });
-            console.log("subtraction four called");
+            console.log("Division four called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractFromAnswerOne': function(){
+    'DivideAnswerByOne': function(){
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -147,11 +156,13 @@ module.exports =
             var history = this.attributes.history;
 
             var first = parseFloat(intent.slots.NumOne.value);
-            var ans = parseFloat(curAnswer - first);
+            var ans = parseFloat(curAnswer / first);
             var answerToSpeak = ans;
-            answerToSpeak=answerToSpeak.toFixed(decimalPlaces(curAnswer));
-            history+= ` minus ${first}`;
-            let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(decimalPlaces(curAnswer));
+            history+= ` divided by ${first}`;
+            let speechOutput = `${curAnswer} divided by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
@@ -160,7 +171,7 @@ module.exports =
 
 
             });
-            console.log("SubtractFromAnswer One called");
+            console.log("DivideAnswerBy One called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 
@@ -169,7 +180,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractFromAnswerTwo': function(){
+    'DivideAnswerByTwo': function(){
 
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
@@ -180,11 +191,13 @@ module.exports =
             var curAnswer = parseFloat(this.attributes.curAnswer);
             var history = this.attributes.history;
             var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
-            var ans = parseFloat(curAnswer - first);
+            var ans = parseFloat(curAnswer / first);
             var answerToSpeak = ans;
-            answerToSpeak=answerToSpeak.toFixed(Math.max(decimalPlaces(curAnswer),intent.slots.DecOne.value.length));
-            history += ` minus ${first}`;
-            let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
+            if(decimalPlaces(ans)>=DEFAULT_DECIMAL_PLACES)
+                answerToSpeak = answerToSpeak.toFixed(DEFAULT_DECIMAL_PLACES);
+            // answerToSpeak=answerToSpeak.toFixed(Math.max(decimalPlaces(curAnswer),intent.slots.DecOne.value.length));
+            history += ` divided by ${first}`;
+            let speechOutput = `${curAnswer} divided by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
@@ -192,7 +205,7 @@ module.exports =
                 history: history
 
             });
-            console.log("SubtractFromAnswer Two called");
+            console.log("DivideAnswerBy Two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 
@@ -201,55 +214,5 @@ module.exports =
             this.emitWithState('Unhandled');
         }
 
-    },
-    'AMAZON.StartOverIntent': function () {
-        this.handler.state = GAME_STATES.START;
-        this.emitWithState('StartGame', false);
-    },
-    'AMAZON.RepeatIntent': function () {
-        this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptText);
-    },
-    'AMAZON.HelpIntent': function () {
-        this.handler.state = GAME_STATES.HELP;
-        this.emitWithState('helpTheUser', false);
-    },
-    'AMAZON.StopIntent': function () {
-        // this.handler.state = GAME_STATES.HELP;
-        // const speechOutput = 'Ending calculator';
-        this.emitWithState('AMAZON.SessionEndedRequest');
-    },
-// 'AMAZON.YesIntent': function () {
-//     if (this.attributes.speechOutput && this.attributes.repromptText) {
-//         this.handler.state = GAME_STATES.CALCULATION;
-//         this.emitWithState('AMAZON.RepeatIntent');
-//     } else {
-//         this.handler.state = GAME_STATES.START;
-//         this.emitWithState('StartGame', false);
-//     }
-// },
-    'AMAZON.CancelIntent': function () {
-        this.emit(':tell', 'Ok, let\'s play again soon.');
-    },
-    'Unhandled': function () {
-        console.log("UNHANDLED");
-        console.log(this.event.request.intent);
-        var curAnswer = parseFloat(this.attributes.curAnswer);
-        var history = this.attributes.history;
-        let speechOutput = `Sorry! I didn't understand what you said`;
-        Object.assign(this.attributes, {
-            speechOutput: speechOutput,
-            speechOutput,
-            curAnswer: answerToSpeak,
-            history: history
-
-        });
-        // console.log("MultiplyByAnswer Two called");
-        console.log(speechOutput);
-        this.emit(':askWithCard', speechOutput);
-    },
-    'AMAZON.SessionEndedRequest': function () {
-        const speechOutput = 'OK, Goodbye!';
-        this.handler.state = GAME_STATES.START;
-        this.emit(':tell', speechOutput);
     }
 }

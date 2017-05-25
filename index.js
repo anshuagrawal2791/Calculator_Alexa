@@ -2,7 +2,7 @@
 
 var Alexa = require('alexa-sdk');
 var APP_ID = 'amzn1.ask.skill.ebbe8c85-74ed-4bd9-b068-e89ae866e50f'; 
-const additionHandlers = require('./additionHandlers');
+const additionHandlers = require('./handlers/additionHandlers');
 const SKILL_NAME = 'Calculator'
 const GAME_STATES = {
     CALCULATION: '_CALCULATIONMODE', // in between calculations.
@@ -90,7 +90,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
     },
 });
 
-const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION,require('./handlers'));
+const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION,require('./handlersConflater'));
 const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
     'helpTheUser': function (newGame) {
         const askMessage = newGame ? 'Would you like to start playing?' : 'To repeat the last question, say, repeat. Would you like to keep playing?';
