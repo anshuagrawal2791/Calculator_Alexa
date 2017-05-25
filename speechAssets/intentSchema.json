@@ -1,201 +1,411 @@
 {
   "intents": [
     {
+      "name": "AdditionFourIntent",
+      "samples": [
+        "What's {NumOne} plus {NumTwo} point {DecTwo}",
+        "What's {NumOne} added to {NumTwo} point {DecTwo}"
+      ],
       "slots": [
         {
           "name": "NumOne",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "AdditionOneIntent"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "SubtractFromAnswerOne"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecOne",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "SubtractFromAnswerTwo"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "AdditionTwoIntent"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "DecTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         }
-      ],
-      "intent": "AdditionThreeIntent"
+      ]
     },
     {
+      "name": "AdditionOneIntent",
+      "samples": [
+        "What's {NumOne} plus {NumTwo}",
+        "What's {NumOne} added to {NumTwo}"
+      ],
       "slots": [
         {
           "name": "NumOne",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         }
-      ],
-      "intent": "AdditionFourIntent"
-    },{
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "SubtractionOneIntent"
+      ]
     },
     {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        }
+      "name": "AdditionThreeIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} plus {NumTwo} point {DecTwo}",
+        "What's {NumOne} point {DecOne} added to {NumTwo} point {DecTwo}"
       ],
-      "intent": "AddToAnswerOne"
-    },
-    {
       "slots": [
         {
           "name": "NumOne",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "DecOne",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "AddToAnswerTwo"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecOne",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
-        }
-      ],
-      "intent": "SubtractionTwoIntent"
-    },
-    {
-      "slots": [
-        {
-          "name": "NumOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "DecOne",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "DecTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         }
-      ],
-      "intent": "SubtractionThreeIntent"
+      ]
     },
     {
+      "name": "AdditionTwoIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} plus {NumTwo}",
+        "What's {NumOne} point {DecOne} added to {NumTwo}"
+      ],
       "slots": [
         {
           "name": "NumOne",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "NumTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "AddToAnswerOne",
+      "samples": [
+        "Add {NumOne} to answer",
+        "Add {NumOne} to it"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "AddToAnswerTwo",
+      "samples": [
+        "Add {NumOne} point {DecOne} to answer",
+        "Add {NumOne} point {DecOne} to it"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.NoIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StartOverIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.YesIntent",
+      "samples": []
+    },
+    {
+      "name": "MultiplicationFourIntent",
+      "samples": [
+        "What's {NumOne} multiplied by {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
         },
         {
           "name": "DecTwo",
-          "type": "AMAZON.NUMBER"
+          "type": "AMAZON.NUMBER",
+          "samples": []
         }
+      ]
+    },
+    {
+      "name": "MultiplicationOneIntent",
+      "samples": [
+        "What's {NumOne} multiplied by {NumTwo}"
       ],
-      "intent": "SubtractionFourIntent"
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.StartOverIntent"
+      "name": "MultiplicationThreeIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} multiplied by {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.YesIntent"
+      "name": "MultiplicationTwoIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} multiplied by {NumTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.NoIntent"
+      "name": "MultiplyByAnswerOne",
+      "samples": [
+        "Multiply {NumOne} by answer",
+        "Multiply answer by {NumOne}",
+        "Multiply it by {NumOne}",
+        "Multiply {NumOne} by it"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.HelpIntent"
+      "name": "MultiplyByAnswerTwo",
+      "samples": [
+        "Multiply {NumOne} point {DecOne} by answer",
+        "Multiply answer by {NumOne} point {DecOne}",
+        "Multiply {NumOne} point {DecOne} by it",
+        "Multiply it by {NumOne} point {DecOne}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.StopIntent"
+      "name": "SubtractFromAnswerOne",
+      "samples": [
+        "Subtract {NumOne} from answer",
+        "Subtract {NumOne} from it"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     },
     {
-      "intent": "AMAZON.CancelIntent"
+      "name": "SubtractFromAnswerTwo",
+      "samples": [
+        "Subtract {NumOne} point {DecOne} from answer",
+        "Subtract {NumOne} point {DecOne} from it"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "SubtractionFourIntent",
+      "samples": [
+        "What's {NumOne} minus {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "SubtractionOneIntent",
+      "samples": [
+        "What's {NumOne} minus {NumTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "SubtractionThreeIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} minus {NumTwo} point {DecTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
+    },
+    {
+      "name": "SubtractionTwoIntent",
+      "samples": [
+        "What's {NumOne} point {DecOne} minus {NumTwo}"
+      ],
+      "slots": [
+        {
+          "name": "NumOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "DecOne",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        },
+        {
+          "name": "NumTwo",
+          "type": "AMAZON.NUMBER",
+          "samples": []
+        }
+      ]
     }
   ]
 }

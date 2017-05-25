@@ -4,5 +4,6 @@
 var conflate = require('conflate');
 const sub=require('./subtractionHandlers');
 const add = require('./additionHandlers');
-var x = conflate(sub,add);
+const mult = require('./multiplicationHandlers');
+var x = conflate(sub,add,mult);
 module.exports= x;

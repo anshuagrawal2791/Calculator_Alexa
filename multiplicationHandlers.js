@@ -15,7 +15,7 @@ function decimalPlaces(num) {
 }
 module.exports =
 {
-    'SubtractionOneIntent': function () {
+    'MultiplicationOneIntent': function () {
         // handleUserGuess.call(this, false);
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
@@ -25,18 +25,18 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseInt(intent.slots.NumOne.value,10);
             var second = parseInt(intent.slots.NumTwo.value,10);
-            let ans = first - second;
+            let ans = first * second;
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed();
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            let speechOutput = `${first} multiplied by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} multiplied by ${second}`
 
             });
-            console.log("subtraction one called");
+            console.log("Multiplication one called");
             console.log(speechOutput);
 
             this.emit(':askWithCard', speechOutput);
@@ -44,14 +44,14 @@ module.exports =
             this.emitWithState('Unhandled');
         }
 // if(answerSlotIsInt){
-// 	intent.emit(':tell',`${first} minus ${second} is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
+// 	intent.emit(':tell',`${first} multiplied by ${second} is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
 // }
 // else{
 // 	intent.emit(':tell',`sorry! I didn't quite get that`);
 // }
 
     },
-    'SubtractionTwoIntent': function () {
+    'MultiplicationTwoIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -60,26 +60,26 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseInt(intent.slots.NumTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first * second);
 
             var answerToSpeak = ans
             answerToSpeak=answerToSpeak.toFixed(intent.slots.DecOne.value.length);
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            let speechOutput = `${first} multiplied by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} multiplied by ${second}`
 
             });
-            console.log("subtraction two called");
+            console.log("Multiplication two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractionThreeIntent': function () {
+    'MultiplicationThreeIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -88,27 +88,27 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value +'.'+ intent.slots.DecOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first * second);
 
 
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed(Math.max(intent.slots.DecOne.value.length,intent.slots.DecTwo.value.length));
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            let speechOutput = `${first} multiplied by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} multiplied by ${second}`
 
             });
-            console.log("subtraction three called");
+            console.log("Multiplication three called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractionFourIntent': function () {
+    'MultiplicationFourIntent': function () {
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -117,26 +117,26 @@ module.exports =
         if(answerSlotIsInt){
             var first = parseFloat(intent.slots.NumOne.value);
             var second = parseFloat(intent.slots.NumTwo.value+'.'+intent.slots.DecTwo.value);
-            let ans = parseFloat(first - second);
+            let ans = parseFloat(first * second);
 
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed(intent.slots.DecTwo.value.length);
-            let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
+            let speechOutput = `${first} multiplied by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
                 curAnswer: answerToSpeak,
-                history: `${first} minus ${second}`
+                history: `${first} multiplied by ${second}`
 
             });
-            console.log("subtraction four called");
+            console.log("Multiplication four called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
         }else{
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractFromAnswerOne': function(){
+    'MultiplyByAnswerOne': function(){
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
 
@@ -147,11 +147,11 @@ module.exports =
             var history = this.attributes.history;
 
             var first = parseFloat(intent.slots.NumOne.value);
-            var ans = parseFloat(curAnswer - first);
+            var ans = parseFloat(curAnswer * first);
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed(decimalPlaces(curAnswer));
-            history+= ` minus ${first}`;
-            let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
+            history+= ` multiplied by ${first}`;
+            let speechOutput = `${curAnswer} multiplied by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
@@ -160,7 +160,7 @@ module.exports =
 
 
             });
-            console.log("SubtractFromAnswer One called");
+            console.log("MultiplyByAnswer One called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 
@@ -169,7 +169,7 @@ module.exports =
             this.emitWithState('Unhandled');
         }
     },
-    'SubtractFromAnswerTwo': function(){
+    'MultiplyByAnswerTwo': function(){
 
         var intent = this.event.request.intent;
         console.log(this.event.request.intent);
@@ -180,11 +180,11 @@ module.exports =
             var curAnswer = parseFloat(this.attributes.curAnswer);
             var history = this.attributes.history;
             var first = parseFloat(intent.slots.NumOne.value+'.'+intent.slots.DecOne.value);
-            var ans = parseFloat(curAnswer - first);
+            var ans = parseFloat(curAnswer * first);
             var answerToSpeak = ans;
             answerToSpeak=answerToSpeak.toFixed(Math.max(decimalPlaces(curAnswer),intent.slots.DecOne.value.length));
-            history += ` minus ${first}`;
-            let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
+            history += ` multiplied by ${first}`;
+            let speechOutput = `${curAnswer} multiplied by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 speechOutput,
@@ -192,7 +192,7 @@ module.exports =
                 history: history
 
             });
-            console.log("SubtractFromAnswer Two called");
+            console.log("MultiplyByAnswer Two called");
             console.log(speechOutput);
             this.emit(':askWithCard', speechOutput);
 
@@ -231,6 +231,8 @@ module.exports =
         this.emit(':tell', 'Ok, let\'s play again soon.');
     },
     'Unhandled': function () {
+        // this.handler.state = GAME_STATES.START;
+        // this.emitWithState('StartGame', false);
         console.log("UNHANDLED");
         console.log(this.event.request.intent);
         var curAnswer = parseFloat(this.attributes.curAnswer);
@@ -246,6 +248,8 @@ module.exports =
         // console.log("MultiplyByAnswer Two called");
         console.log(speechOutput);
         this.emit(':askWithCard', speechOutput);
+        
+// console.log(speechOutput);
     },
     'AMAZON.SessionEndedRequest': function () {
         const speechOutput = 'OK, Goodbye!';

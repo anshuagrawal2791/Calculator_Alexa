@@ -18,6 +18,7 @@ module.exports =
 	'AdditionOneIntent': function () {
     // handleUserGuess.call(this, false);
     var intent = this.event.request.intent;
+		console.log(this.event.request.intent);
     const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value;
     const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10));
     if(answerSlotIsInt){
@@ -26,7 +27,7 @@ module.exports =
     	let ans = first + second;
     	var answerToSpeak = ans;
     	answerToSpeak=answerToSpeak.toFixed();
-    	let speechOutput = `answer is ${answerToSpeak}. What do you want me to do next?`;
+    	let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
     	Object.assign(this.attributes, {
     		speechOutput: speechOutput,
     		speechOutput,
@@ -42,7 +43,7 @@ module.exports =
     	this.emitWithState('Unhandled');
     }
 // if(answerSlotIsInt){
-// 	intent.emit(':tell',`answer is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
+// 	intent.emit(':tell',`${first} plus ${second} is $(parseInt(intent.slots.NumOne.value,10)+parseInt(intent.slots.NumTwo.value,10). What do you want me to do next?`);
 // }
 // else{
 // 	intent.emit(':tell',`sorry! I didn't quite get that`);
@@ -51,6 +52,8 @@ module.exports =
 },
 'AdditionTwoIntent': function () {
 	var intent = this.event.request.intent;
+	console.log(this.event.request.intent);
+
 	const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecOne&&intent.slots.DecOne.value;
 	const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecOne.value));
 	if(answerSlotIsInt){
@@ -60,7 +63,7 @@ module.exports =
 
 		var answerToSpeak = ans
 		answerToSpeak=answerToSpeak.toFixed(intent.slots.DecOne.value.length);
-		let speechOutput = `answer is ${answerToSpeak}. What do you want me to do next?`;
+		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
 			speechOutput,
@@ -77,6 +80,8 @@ module.exports =
 },
 'AdditionThreeIntent': function () {
 	var intent = this.event.request.intent;
+	console.log(this.event.request.intent);
+
 	const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecOne&&intent.slots.DecOne.value&&intent.slots.DecTwo&&intent.slots.DecTwo.value;
 	const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecOne.value)&&parseInt(intent.slots.DecTwo.value));
 	if(answerSlotIsInt){
@@ -87,7 +92,7 @@ module.exports =
 
 		var answerToSpeak = ans;
 		answerToSpeak=answerToSpeak.toFixed(Math.max(intent.slots.DecOne.value.length,intent.slots.DecTwo.value.length));
-		let speechOutput = `answer is ${answerToSpeak}. What do you want me to do next?`;
+		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
 			speechOutput,
@@ -104,6 +109,8 @@ module.exports =
 },
 'AdditionFourIntent': function () {
 	var intent = this.event.request.intent;
+	console.log(this.event.request.intent);
+
 	const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value && intent.slots.NumTwo && intent.slots.NumTwo.value&&intent.slots.DecTwo&&intent.slots.DecTwo.value;
 	const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.NumTwo.value,10)&&parseInt(intent.slots.DecTwo.value));
 	if(answerSlotIsInt){
@@ -113,7 +120,7 @@ module.exports =
 
 		var answerToSpeak = ans;
 		answerToSpeak=answerToSpeak.toFixed(intent.slots.DecTwo.value.length);
-		let speechOutput = `answer is ${answerToSpeak}. What do you want me to do next?`;
+		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
 			speechOutput,
@@ -130,6 +137,8 @@ module.exports =
 },
 'AddToAnswerOne': function(){
 	var intent = this.event.request.intent;
+	console.log(this.event.request.intent);
+
 	const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value;
 	const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10));
 	if(answerSlotIsInt){
@@ -141,7 +150,7 @@ module.exports =
 		var answerToSpeak = ans;
 		answerToSpeak=answerToSpeak.toFixed(decimalPlaces(curAnswer));
 		history+= ` plus ${first}`;
-		let speechOutput = `answer is now ${answerToSpeak}. What do you want me to do next?`;
+		let speechOutput = `${curAnswer} plus ${first} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
 			speechOutput,
@@ -162,6 +171,8 @@ module.exports =
 'AddToAnswerTwo': function(){
 
 	var intent = this.event.request.intent;
+	console.log(this.event.request.intent);
+
 	const answerSlotFilled = intent && intent.slots && intent.slots.NumOne && intent.slots.NumOne.value&&intent.slots.DecOne&&intent.slots.DecOne.value;
 	const answerSlotIsInt = answerSlotFilled && !isNaN(parseInt(intent.slots.NumOne.value, 10)&&parseInt(intent.slots.DecOne.value));
 	if(answerSlotIsInt){
@@ -172,7 +183,7 @@ module.exports =
 		var answerToSpeak = ans;
 		answerToSpeak=answerToSpeak.toFixed(Math.max(decimalPlaces(curAnswer),intent.slots.DecOne.value.length));
 		history += ` plus ${first}`;
-		let speechOutput = `answer is now ${answerToSpeak}. What do you want me to do next?`;
+		let speechOutput = `${curAnswer} plus ${first} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
 			speechOutput,
@@ -219,11 +230,21 @@ module.exports =
 	this.emit(':tell', 'Ok, let\'s play again soon.');
 },
 'Unhandled': function () {
-    // this.handler.state = GAME_STATES.START;
-    // this.emitWithState('StartGame', false);
-    console.log("UNHANDLED");
-    console.log(this.intent);
-// console.log(speechOutput);
+	console.log("UNHANDLED");
+	console.log(this.event.request.intent);
+	var curAnswer = parseFloat(this.attributes.curAnswer);
+	var history = this.attributes.history;
+	let speechOutput = `Sorry! I didn't understand what you said`;
+	Object.assign(this.attributes, {
+		speechOutput: speechOutput,
+		speechOutput,
+		curAnswer: answerToSpeak,
+		history: history
+
+	});
+	// console.log("MultiplyByAnswer Two called");
+	console.log(speechOutput);
+	this.emit(':askWithCard', speechOutput);
 },
 'AMAZON.SessionEndedRequest': function () {
 	const speechOutput = 'OK, Goodbye!';

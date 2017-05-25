@@ -1,7 +1,11 @@
 AdditionOneIntent What's {NumOne} plus {NumTwo}
+AdditionOneIntent What's {NumOne} added to {NumTwo}
 AdditionTwoIntent What's {NumOne} point {DecOne} plus {NumTwo}
+AdditionTwoIntent What's {NumOne} point {DecOne} added to {NumTwo}
 AdditionThreeIntent What's {NumOne} point {DecOne} plus {NumTwo} point {DecTwo}
+AdditionThreeIntent What's {NumOne} point {DecOne} added to {NumTwo} point {DecTwo}
 AdditionFourIntent What's {NumOne} plus {NumTwo} point {DecTwo}
+AdditionFourIntent What's {NumOne} added to {NumTwo} point {DecTwo}
 
 AddToAnswerOne Add {NumOne} to answer
 AddToAnswerOne Add {NumOne} to it
@@ -18,4 +22,19 @@ SubtractFromAnswerOne Subtract {NumOne} from answer
 SubtractFromAnswerOne Subtract {NumOne} from it
 SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from answer
 SubtractFromAnswerTwo Subtract {NumOne} point {DecOne} from it
+
+
+MultiplicationOneIntent What's {NumOne} multiplied by {NumTwo}
+MultiplicationTwoIntent What's {NumOne} point {DecOne} multiplied by {NumTwo}
+MultiplicationThreeIntent What's {NumOne} point {DecOne} multiplied by {NumTwo} point {DecTwo}
+MultiplicationFourIntent What's {NumOne} multiplied by {NumTwo} point {DecTwo}
+
+MultiplyByAnswerOne Multiply {NumOne} by answer
+MultiplyByAnswerOne Multiply answer by {NumOne}
+MultiplyByAnswerOne Multiply it by {NumOne}
+MultiplyByAnswerOne Multiply {NumOne} by it
+MultiplyByAnswerTwo Multiply {NumOne} point {DecOne} by answer
+MultiplyByAnswerTwo Multiply answer by {NumOne} point {DecOne}
+MultiplyByAnswerTwo Multiply {NumOne} point {DecOne} by it
+MultiplyByAnswerTwo Multiply it by {NumOne} point {DecOne}
 
