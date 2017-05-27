@@ -206,7 +206,8 @@ module.exports =
 	this.emitWithState('StartGame', false);
 },
 'AMAZON.RepeatIntent': function () {
-	this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptText);
+	console.log("repeat intent called");
+	this.emit(':ask', this.attributes.speechOutput, this.attributes.speechOutput);
 },
 'AMAZON.HelpIntent': function () {
 	this.handler.state = GAME_STATES.HELP;
@@ -227,7 +228,8 @@ module.exports =
 //     }
 // },
 'AMAZON.CancelIntent': function () {
-	this.emit(':tell', 'Ok, let\'s play again soon.');
+	this.handler.state = GAME_STATES.START;
+	this.emitWithState('StartGame', false);
 },
 'Unhandled': function () {
 	console.log("UNHANDLED");
@@ -238,7 +240,7 @@ module.exports =
 	Object.assign(this.attributes, {
 		speechOutput: speechOutput,
 		speechOutput,
-		curAnswer: answerToSpeak,
+		curAnswer: curAnswer,
 		history: history
 
 	});

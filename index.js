@@ -28,6 +28,7 @@ const newSessionHandlers = {
         if (this.event.request.type === 'LaunchRequest') {
             this.emitWithState('StartGame', true);
         } else if (this.event.request.type === 'IntentRequest') {
+            this.handler.state = GAME_STATES.CALCULATION;
             console.log(`current intent: ${this.event.request.intent.name
             }, current state:${this.handler.state}`);
             const intent = this.event.request.intent.name;
@@ -45,7 +46,8 @@ const createStateHandler = Alexa.CreateStateHandler;
 const startStateHandlers = createStateHandler(GAME_STATES.START, {
     'StartGame': function (newGame) {
         console.log("start game called");
-        let speechOutput = newGame ? `Welcome to ${SKILL_NAME}`: 'output is 0';
+        let speechOutput = newGame ? `Welcome to ${SKILL_NAME}`+`You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`: 'output is set to 0';
         // Select GAME_LENGTH questions for the game
         // const gameQuestions = populateGameQuestions();
         // // Generate a random index for the correct answer, from 0 to 3
@@ -93,10 +95,10 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
 const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION,require('./handlersConflater'));
 const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
     'helpTheUser': function (newGame) {
-        const askMessage = newGame ? 'Would you like to start playing?' : 'To repeat the last question, say, repeat. Would you like to keep playing?';
-        const speechOutput = `I will ask you multiple choice questions. Respond with the number of the answer. `
-        + `For example, say one, two, three, or four. To start a new game at any time, say, start game. ${askMessage}`;
-        const repromptText = `To give an answer to a question, respond with the number of the answer . ${askMessage}`;
+        // const askMessage = newGame ? 'Would you like to start playing?' : 'To repeat the last question, say, repeat. Would you like to keep playing?';
+        const speechOutput = `Hi there. I'll help you with your calculations. `
+        + `For example, you can ask me, what's two point three multiplied by seven point nine. ` +`I'll also keep the last output so that you can operate on it. For example, you can ask me to multiply nine to the answer. `+ `I'll also record the calculations so you can recheck. Just say, tell me the calculation history. Shall we start?`;
+        const repromptText = `Shall we start?`;
 
         this.emit(':ask', speechOutput, repromptText);
     },
@@ -111,16 +113,13 @@ const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
         this.emitWithState('helpTheUser', false);
     },
     'AMAZON.YesIntent': function () {
-        if (this.attributes.speechOutput && this.attributes.repromptText) {
-            this.handler.state = GAME_STATES.CALCULATION;
-            this.emitWithState('AMAZON.RepeatIntent');
-        } else {
+        
             this.handler.state = GAME_STATES.START;
             this.emitWithState('StartGame', false);
-        }
+        
     },
     'AMAZON.NoIntent': function () {
-        const speechOutput = 'Ok, we\'ll play another time. Goodbye!';
+        const speechOutput = 'Ok. Goodbye!';
         this.emit(':tell', speechOutput);
     },
     'AMAZON.StopIntent': function () {

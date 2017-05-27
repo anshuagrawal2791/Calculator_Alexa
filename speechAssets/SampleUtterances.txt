@@ -51,3 +51,6 @@ MultiplyByAnswerTwo Multiply answer by {NumOne} point {DecOne}
 MultiplyByAnswerTwo Multiply {NumOne} point {DecOne} by it
 MultiplyByAnswerTwo Multiply it by {NumOne} point {DecOne}
 
+ReadHistoryIntent Read out the calculation history
+ReadHistoryIntent what's the calculation history
+ReadHistoryIntent tell me the history

@@ -4,7 +4,8 @@
       "name": "AdditionFourIntent",
       "samples": [
         "What's {NumOne} plus {NumTwo} point {DecTwo}",
-        "What's {NumOne} added to {NumTwo} point {DecTwo}"
+        "What's {NumOne} added to {NumTwo} point {DecTwo}",
+        "add {NumOne} and {NumTwo} point {DecTwo}"
       ],
       "slots": [
         {
@@ -28,7 +29,8 @@
       "name": "AdditionOneIntent",
       "samples": [
         "What's {NumOne} plus {NumTwo}",
-        "What's {NumOne} added to {NumTwo}"
+        "What's {NumOne} added to {NumTwo}",
+        "add {NumOne} and {NumTwo} "
       ],
       "slots": [
         {
@@ -47,7 +49,8 @@
       "name": "AdditionThreeIntent",
       "samples": [
         "What's {NumOne} point {DecOne} plus {NumTwo} point {DecTwo}",
-        "What's {NumOne} point {DecOne} added to {NumTwo} point {DecTwo}"
+        "What's {NumOne} point {DecOne} added to {NumTwo} point {DecTwo}",
+        "add {NumOne} point {DecOne} and {NumTwo} point {DecTwo}"
       ],
       "slots": [
         {
@@ -76,7 +79,8 @@
       "name": "AdditionTwoIntent",
       "samples": [
         "What's {NumOne} point {DecOne} plus {NumTwo}",
-        "What's {NumOne} point {DecOne} added to {NumTwo}"
+        "What's {NumOne} point {DecOne} added to {NumTwo}",
+        "add {NumOne} point {DecOne} and {NumTwo} "
       ],
       "slots": [
         {
@@ -100,7 +104,8 @@
       "name": "AddToAnswerOne",
       "samples": [
         "Add {NumOne} to answer",
-        "Add {NumOne} to it"
+        "Add {NumOne} to it",
+        "Add {NumOne} to the answer"
       ],
       "slots": [
         {
@@ -114,7 +119,8 @@
       "name": "AddToAnswerTwo",
       "samples": [
         "Add {NumOne} point {DecOne} to answer",
-        "Add {NumOne} point {DecOne} to it"
+        "Add {NumOne} point {DecOne} to it",
+        "Add {NumOne} point {DecOne} to the answer"
       ],
       "slots": [
         {
@@ -142,6 +148,10 @@
       "samples": []
     },
     {
+      "name": "AMAZON.RepeatIntent",
+      "samples": []
+    },
+    {
       "name": "AMAZON.StartOverIntent",
       "samples": []
     },
@@ -157,7 +167,8 @@
       "name": "DivideAnswerByOne",
       "samples": [
         "Divide answer by {NumOne}",
-        "Divide it by {NumOne}"
+        "Divide it by {NumOne}",
+        "Divide the answer by {NumOne}"
       ],
       "slots": [
         {
@@ -171,7 +182,8 @@
       "name": "DivideAnswerByTwo",
       "samples": [
         "Divide answer by {NumOne} point {DecOne}",
-        "Divide it by {NumOne} point {DecOne}"
+        "Divide it by {NumOne} point {DecOne}",
+        "Divide the answer by {NumOne} point {DecOne} "
       ],
       "slots": [
         {
@@ -189,7 +201,8 @@
     {
       "name": "DivisionFourIntent",
       "samples": [
-        "What's {NumOne} divided by {NumTwo} point {DecTwo}"
+        "What's {NumOne} divided by {NumTwo} point {DecTwo}",
+        "Divide {NumOne}  by {NumTwo} point {DecTwo} "
       ],
       "slots": [
         {
@@ -212,7 +225,8 @@
     {
       "name": "DivisionOneIntent",
       "samples": [
-        "What's {NumOne} divided by {NumTwo}"
+        "What's {NumOne} divided by {NumTwo}",
+        "Divide {NumOne}  by {NumTwo} "
       ],
       "slots": [
         {
@@ -230,7 +244,8 @@
     {
       "name": "DivisionThreeIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} divided by {NumTwo} point {DecTwo}"
+        "What's {NumOne} point {DecOne} divided by {NumTwo} point {DecTwo}",
+        "Divide {NumOne}  point {DecOne} by {NumTwo} point {DecTwo}"
       ],
       "slots": [
         {
@@ -258,7 +273,8 @@
     {
       "name": "DivisionTwoIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} divided by {NumTwo}"
+        "What's {NumOne} point {DecOne} divided by {NumTwo}",
+        "Divide {NumOne}  point {DecOne} by {NumTwo}"
       ],
       "slots": [
         {
@@ -281,7 +297,8 @@
     {
       "name": "MultiplicationFourIntent",
       "samples": [
-        "What's {NumOne} multiplied by {NumTwo} point {DecTwo}"
+        "What's {NumOne} multiplied by {NumTwo} point {DecTwo}",
+        "Multiply {NumOne}  by {NumTwo} point {DecTwo} "
       ],
       "slots": [
         {
@@ -304,7 +321,8 @@
     {
       "name": "MultiplicationOneIntent",
       "samples": [
-        "What's {NumOne} multiplied by {NumTwo}"
+        "What's {NumOne} multiplied by {NumTwo}",
+        "Multiply {NumOne}  by {NumTwo} "
       ],
       "slots": [
         {
@@ -322,7 +340,8 @@
     {
       "name": "MultiplicationThreeIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} multiplied by {NumTwo} point {DecTwo}"
+        "What's {NumOne} point {DecOne} multiplied by {NumTwo} point {DecTwo}",
+        "Multiply {NumOne}  point {DecOne} by {NumTwo} point {DecTwo} "
       ],
       "slots": [
         {
@@ -350,7 +369,8 @@
     {
       "name": "MultiplicationTwoIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} multiplied by {NumTwo}"
+        "What's {NumOne} point {DecOne} multiplied by {NumTwo}",
+        "Multiply {NumOne}  point {DecOne} by {NumTwo} "
       ],
       "slots": [
         {
@@ -376,7 +396,8 @@
         "Multiply {NumOne} by answer",
         "Multiply answer by {NumOne}",
         "Multiply it by {NumOne}",
-        "Multiply {NumOne} by it"
+        "Multiply {NumOne} by it",
+        "Multiply the answer by {NumOne}"
       ],
       "slots": [
         {
@@ -392,7 +413,8 @@
         "Multiply {NumOne} point {DecOne} by answer",
         "Multiply answer by {NumOne} point {DecOne}",
         "Multiply {NumOne} point {DecOne} by it",
-        "Multiply it by {NumOne} point {DecOne}"
+        "Multiply it by {NumOne} point {DecOne}",
+        "Multiply the answer by {NumOne} point {DecOne}"
       ],
       "slots": [
         {
@@ -406,6 +428,15 @@
           "samples": []
         }
       ]
+    },
+    {
+      "name": "ReadHistoryIntent",
+      "samples": [
+        "Read out the calculation history",
+        "what's the calculation history",
+        "tell me the history"
+      ],
+      "slots": []
     },
     {
       "name": "SubtractFromAnswerOne",
@@ -443,7 +474,8 @@
     {
       "name": "SubtractionFourIntent",
       "samples": [
-        "What's {NumOne} minus {NumTwo} point {DecTwo}"
+        "What's {NumOne} minus {NumTwo} point {DecTwo}",
+        "Subtract {NumTwo}  point {DecTwo}  from {NumOne} "
       ],
       "slots": [
         {
@@ -466,7 +498,8 @@
     {
       "name": "SubtractionOneIntent",
       "samples": [
-        "What's {NumOne} minus {NumTwo}"
+        "What's {NumOne} minus {NumTwo}",
+        "Subtract {NumTwo}  from {NumOne} "
       ],
       "slots": [
         {
@@ -484,7 +517,8 @@
     {
       "name": "SubtractionThreeIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} minus {NumTwo} point {DecTwo}"
+        "What's {NumOne} point {DecOne} minus {NumTwo} point {DecTwo}",
+        "Subtract {NumTwo}  point {DecTwo}  from {NumOne} point {DecOne}"
       ],
       "slots": [
         {
@@ -512,7 +546,8 @@
     {
       "name": "SubtractionTwoIntent",
       "samples": [
-        "What's {NumOne} point {DecOne} minus {NumTwo}"
+        "What's {NumOne} point {DecOne} minus {NumTwo}",
+        "Subtract {NumTwo}   from {NumOne}  point {DecOne} "
       ],
       "slots": [
         {
