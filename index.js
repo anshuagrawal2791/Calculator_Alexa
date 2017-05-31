@@ -47,7 +47,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
     'StartGame': function (newGame) {
         console.log("start game called");
         let speechOutput = newGame ? `Welcome to ${SKILL_NAME}. `+`You can ask me things like, what's one plus one point seven. Or what's 
-        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`: 'output is set to 0. What do you want me to do next?';
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`: 'OK. output is set to 0. What do you want me to do next?';
         // Select GAME_LENGTH questions for the game
         // const gameQuestions = populateGameQuestions();
         // // Generate a random index for the correct answer, from 0 to 3
