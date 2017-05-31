@@ -3,6 +3,9 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+const SKILL_NAME = 'Calculator';
+const cardContent = `You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
 function decimalPlaces(num) {
     var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
     if (!match) { return 0; }
@@ -27,13 +30,13 @@ module.exports =
             let speechOutput = `Ok. You have done ${history}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: curAnswer,
                 history: history
 
             });
             console.log("Read History Intent called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+        this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
     }
 }

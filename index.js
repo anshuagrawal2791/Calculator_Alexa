@@ -3,7 +3,7 @@
 var Alexa = require('alexa-sdk');
 var APP_ID = 'amzn1.ask.skill.ebbe8c85-74ed-4bd9-b068-e89ae866e50f'; 
 const additionHandlers = require('./handlers/additionHandlers');
-const SKILL_NAME = 'Calculator'
+const SKILL_NAME = 'Calculator';
 const GAME_STATES = {
     CALCULATION: '_CALCULATIONMODE', // in between calculations.
     START: '_STARTMODE', // Entry point, start the game.
@@ -46,8 +46,8 @@ const createStateHandler = Alexa.CreateStateHandler;
 const startStateHandlers = createStateHandler(GAME_STATES.START, {
     'StartGame': function (newGame) {
         console.log("start game called");
-        let speechOutput = newGame ? `Welcome to ${SKILL_NAME}`+`You can ask me things like, what's one plus one point seven. Or what's 
-        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`: 'output is set to 0';
+        let speechOutput = newGame ? `Welcome to ${SKILL_NAME}. `+`You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`: 'output is set to 0. What do you want me to do next?';
         // Select GAME_LENGTH questions for the game
         // const gameQuestions = populateGameQuestions();
         // // Generate a random index for the correct answer, from 0 to 3
@@ -58,9 +58,10 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
         // const spokenQuestion = Object.keys(questions[gameQuestions[currentQuestionIndex]])[0];
         // if(newGame)
         let repromptText = `Current answer is 0`;
+        let cardContent = `Welcome to ${SKILL_NAME}. `+`You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
     	// else
     	// 	let repromptText = `Take your time`;
-
         // for (let i = 0; i < ANSWER_COUNT; i += 1) {
         //     repromptText += `${(i + 1).toString()}. ${roundAnswers[i]}. `;
         // }
@@ -77,7 +78,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
         // Set the current state to trivia mode. The skill will now use handlers defined in triviaStateHandlers
         this.handler.state = GAME_STATES.CALCULATION;
 
-        this.emit(':askWithCard', speechOutput, repromptText, SKILL_NAME, repromptText);
+        this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
     },
     'AMAZON.HelpIntent': function () {
         this.handler.state = GAME_STATES.HELP;
@@ -85,11 +86,18 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
     },
     'Unhandled': function () {
         this.emit('StartGame', true);
+    },'AMAZON.StopIntent': function () {
+        const speechOutput = 'Ok. Goodbye!';
+        this.emit(':tell', speechOutput);
+    },
+    'AMAZON.CancelIntent': function () {
+        const speechOutput = 'Ok. Goodbye!';
+        this.emit(':tell', speechOutput);
     },
     'SessionEndedRequest': function () {
         const speechOutput = 'OK, Goodbye!';
         this.emit(':tell', speechOutput);
-    },
+    }
 });
 
 const calculationStateHandlers = createStateHandler(GAME_STATES.CALCULATION,require('./handlersConflater'));
@@ -127,8 +135,8 @@ const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
         this.emit(':ask', speechOutput, speechOutput);
     },
     'AMAZON.CancelIntent': function () {
-        this.handler.state = GAME_STATES.CALCULATION;
-        this.emitWithState('AMAZON.RepeatIntent');
+        const speechOutput = 'Would you like to keep playing?';
+        this.emit(':ask', speechOutput, speechOutput);
     },
     'Unhandled': function () {
         const speechOutput = 'Say yes to continue, or no to end the game.';

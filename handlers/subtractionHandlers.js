@@ -3,6 +3,9 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+const SKILL_NAME = 'Calculator';
+const cardContent = `You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
 function decimalPlaces(num) {
     var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
     if (!match) { return 0; }
@@ -31,7 +34,7 @@ module.exports =
             let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
@@ -39,7 +42,7 @@ module.exports =
             console.log("subtraction one called");
             console.log(speechOutput);
 
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -67,14 +70,14 @@ module.exports =
             let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
             console.log("subtraction two called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -96,14 +99,14 @@ module.exports =
             let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
             console.log("subtraction three called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -124,14 +127,14 @@ module.exports =
             let speechOutput = `${first} minus ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} minus ${second}`
 
             });
             console.log("subtraction four called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -154,7 +157,7 @@ module.exports =
             let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history:history
 
@@ -162,7 +165,7 @@ module.exports =
             });
             console.log("SubtractFromAnswer One called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
 
 
         }else{
@@ -187,14 +190,14 @@ module.exports =
             let speechOutput = `${curAnswer} minus ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: history
 
             });
             console.log("SubtractFromAnswer Two called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
 
 
         }else{

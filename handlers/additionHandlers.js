@@ -3,6 +3,9 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+const SKILL_NAME = 'Calculator';
+const cardContent = `You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
 function decimalPlaces(num) {
 	var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
 	if (!match) { return 0; }
@@ -30,7 +33,7 @@ module.exports =
     	let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
     	Object.assign(this.attributes, {
     		speechOutput: speechOutput,
-    		speechOutput,
+    		repromptText:cardContent,
     		curAnswer: answerToSpeak,
     		history: `${first} plus ${second}`
 
@@ -38,7 +41,7 @@ module.exports =
     	console.log("addition one called");
     	console.log(speechOutput);
 
-    	this.emit(':askWithCard', speechOutput);
+    	this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
     }else{
     	this.emitWithState('Unhandled');
     }
@@ -66,14 +69,14 @@ module.exports =
 		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
-			speechOutput,
+			repromptText:cardContent,
 			curAnswer: answerToSpeak,
 			history: `${first} plus ${second}`
 
 		});
 		console.log("addition two called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput);
+		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 	}else{
 		this.emitWithState('Unhandled');
 	}
@@ -95,14 +98,14 @@ module.exports =
 		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
-			speechOutput,
+			repromptText:cardContent,
 			curAnswer: answerToSpeak,
 			history: `${first} plus ${second}`
 
 		});
 		console.log("addition three called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput);
+		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 	}else{
 		this.emitWithState('Unhandled');
 	}  
@@ -123,14 +126,14 @@ module.exports =
 		let speechOutput = `${first} plus ${second} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
-			speechOutput,
+			repromptText:cardContent,
 			curAnswer: answerToSpeak,
 			history: `${first} plus ${second}`
 
 		});
 		console.log("addition four called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput);
+		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 	}else{
 		this.emitWithState('Unhandled');
 	}   
@@ -153,7 +156,7 @@ module.exports =
 		let speechOutput = `${curAnswer} plus ${first} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
-			speechOutput,
+			repromptText:cardContent,
 			curAnswer: answerToSpeak,
 			history:history
 
@@ -161,7 +164,7 @@ module.exports =
 		});
 		console.log("addToAnswer One called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput);
+		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 
 
 	}else{
@@ -186,14 +189,14 @@ module.exports =
 		let speechOutput = `${curAnswer} plus ${first} is ${answerToSpeak}. What do you want me to do next?`;
 		Object.assign(this.attributes, {
 			speechOutput: speechOutput,
-			speechOutput,
+			repromptText:cardContent,
 			curAnswer: answerToSpeak,
 			history: history
 
 		});
 		console.log("addToAnswer Two called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput);
+		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 
 
 	}else{
@@ -228,8 +231,8 @@ module.exports =
 //     }
 // },
 'AMAZON.CancelIntent': function () {
-	this.handler.state = GAME_STATES.START;
-	this.emitWithState('StartGame', false);
+	const speechOutput = 'Ok. Goodbye!';
+	this.emit(':tell', speechOutput);
 },
 'Unhandled': function () {
 	console.log("UNHANDLED");
@@ -239,14 +242,14 @@ module.exports =
 	let speechOutput = `Sorry! I didn't understand what you said`;
 	Object.assign(this.attributes, {
 		speechOutput: speechOutput,
-		speechOutput,
+		repromptText:cardContent,
 		curAnswer: curAnswer,
 		history: history
 
 	});
 	// console.log("MultiplyByAnswer Two called");
 	console.log(speechOutput);
-	this.emit(':askWithCard', speechOutput);
+	this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 },
 'AMAZON.SessionEndedRequest': function () {
 	const speechOutput = 'OK, Goodbye!';

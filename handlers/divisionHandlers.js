@@ -3,6 +3,9 @@ const GAME_STATES = {
     START: '_STARTMODE', // Entry point, start the game.
     HELP: '_HELPMODE', // The user is asking for help.
 };
+const SKILL_NAME = 'Calculator';
+const cardContent = `You can ask me things like, what's one plus one point seven. Or what's 
+        nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
 const DEFAULT_DECIMAL_PLACES = 4;
 function decimalPlaces(num) {
     var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
@@ -34,7 +37,7 @@ module.exports =
             let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} divided by ${second}`
 
@@ -42,7 +45,7 @@ module.exports =
             console.log("Division one called");
             console.log(speechOutput);
 
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
         }else{
             this.emitWithState('Unhandled');
         }
@@ -72,14 +75,14 @@ module.exports =
             let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} divided by ${second}`
 
             });
             console.log("Division two called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
         }else{
             this.emitWithState('Unhandled');
         }
@@ -103,14 +106,14 @@ module.exports =
             let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} divided by ${second}`
 
             });
             console.log("Division three called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
         }else{
             this.emitWithState('Unhandled');
         }
@@ -133,14 +136,14 @@ module.exports =
             let speechOutput = `${first} divided by ${second} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: `${first} divided by ${second}`
 
             });
             console.log("Division four called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
         }else{
             this.emitWithState('Unhandled');
         }
@@ -165,7 +168,7 @@ module.exports =
             let speechOutput = `${curAnswer} divided by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history:history
 
@@ -173,7 +176,7 @@ module.exports =
             });
             console.log("DivideAnswerBy One called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 
 
         }else{
@@ -200,14 +203,14 @@ module.exports =
             let speechOutput = `${curAnswer} divided by ${first} is ${answerToSpeak}. What do you want me to do next?`;
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
-                speechOutput,
+                repromptText:cardContent,
                 curAnswer: answerToSpeak,
                 history: history
 
             });
             console.log("DivideAnswerBy Two called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput);
+            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
 
 
         }else{
