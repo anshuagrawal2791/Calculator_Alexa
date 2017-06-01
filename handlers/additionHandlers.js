@@ -239,7 +239,7 @@ module.exports =
 	console.log(this.event.request.intent);
 	var curAnswer = parseFloat(this.attributes.curAnswer);
 	var history = this.attributes.history;
-	let speechOutput = `Sorry! I didn't understand what you said`;
+	let speechOutput = `Sorry! The given input is invalid. What do you want me to do next? `;
 	Object.assign(this.attributes, {
 		speechOutput: speechOutput,
 		repromptText:cardContent,
