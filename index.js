@@ -105,7 +105,7 @@ const helpStateHandlers = createStateHandler(GAME_STATES.HELP, {
     'helpTheUser': function (newGame) {
         // const askMessage = newGame ? 'Would you like to start playing?' : 'To repeat the last question, say, repeat. Would you like to keep playing?';
         const speechOutput = `Hi there. I'll help you with your calculations. `
-        + `For example, you can ask me, what's two point three multiplied by seven point nine. ` +`I'll also keep the last output so that you can operate on it. For example, you can ask me to multiply nine to the answer. `+ `I'll also record the calculations so you can recheck. Just say, tell me the calculation history. Shall we start?`;
+        + `For example, you can ask me, what's two point three multiplied by seven point nine. Or, What's five point nine plus three. Or, What's five point nine minus three. Or, What's five point nine divided by three. ` +`I'll also keep the last output so that you can operate on it. For example, you can ask me to multiply nine to the answer. Or, divide the answer by two. Or, add two to answer. Or, subtract five from answer. `+ `I'll also record the calculations so you can recheck. Just say, tell me the calculation history. Shall we start?`;
         const repromptText = `Shall we start?`;
 
         this.emit(':ask', speechOutput, repromptText);
