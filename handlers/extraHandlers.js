@@ -27,7 +27,12 @@ module.exports =
             var curAnswer = parseFloat(this.attributes.curAnswer);
             var history = this.attributes.history;
 
-            let speechOutput = `Ok. You have done ${history}. What do you want me to do next?`;
+            let speechOutput="";
+            if(history)
+            speechOutput = `Ok. You have done ${history}. What do you want me to do next?`;
+        else
+                speechOutput = "No calculation history found. What do you want me to do next?";
+
             Object.assign(this.attributes, {
                 speechOutput: speechOutput,
                 repromptText:cardContent,
