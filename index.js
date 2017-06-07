@@ -78,7 +78,7 @@ const startStateHandlers = createStateHandler(GAME_STATES.START, {
         // Set the current state to trivia mode. The skill will now use handlers defined in triviaStateHandlers
         this.handler.state = GAME_STATES.CALCULATION;
 
-        this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+        this.emit(':ask', speechOutput, cardContent);
     },
     'AMAZON.HelpIntent': function () {
         this.handler.state = GAME_STATES.HELP;

@@ -4,8 +4,9 @@ const GAME_STATES = {
     HELP: '_HELPMODE', // The user is asking for help.
 };
 const SKILL_NAME = 'Calculator';
-const cardContent = `You can ask me things like, what's one plus one point seven. Or what's 
+const cardContent2 = `You can ask me things like, what's one plus one point seven. Or what's 
         nine point seven multiplied by hundred and thirty point seven. For more instructions, just say Help.`;
+const cardContent = 'Can you say that again?';
 function decimalPlaces(num) {
 	var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
 	if (!match) { return 0; }
@@ -41,7 +42,7 @@ module.exports =
     	console.log("addition one called");
     	console.log(speechOutput);
 
-    	this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+    	this.emit(':ask', speechOutput, cardContent);
     }else{
     	this.emitWithState('Unhandled');
     }
@@ -76,7 +77,7 @@ module.exports =
 		});
 		console.log("addition two called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+		this.emit(':ask', speechOutput, cardContent);
 	}else{
 		this.emitWithState('Unhandled');
 	}
@@ -105,7 +106,7 @@ module.exports =
 		});
 		console.log("addition three called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+		this.emit(':ask', speechOutput, cardContent);
 	}else{
 		this.emitWithState('Unhandled');
 	}  
@@ -133,7 +134,7 @@ module.exports =
 		});
 		console.log("addition four called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+		this.emit(':ask', speechOutput, cardContent);
 	}else{
 		this.emitWithState('Unhandled');
 	}   
@@ -164,7 +165,7 @@ module.exports =
 		});
 		console.log("addToAnswer One called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+		this.emit(':ask', speechOutput, cardContent);
 
 
 	}else{
@@ -196,7 +197,7 @@ module.exports =
 		});
 		console.log("addToAnswer Two called");
 		console.log(speechOutput);
-		this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+		this.emit(':ask', speechOutput, cardContent);
 
 
 	}else{
@@ -249,7 +250,7 @@ module.exports =
 	});
 	// console.log("MultiplyByAnswer Two called");
 	console.log(speechOutput);
-	this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent); 
+	this.emit(':ask', speechOutput, cardContent);
 },
 'AMAZON.SessionEndedRequest': function () {
 	const speechOutput = 'OK, Goodbye!';
