@@ -44,7 +44,7 @@ module.exports =
             console.log("subtraction one called");
             console.log(speechOutput);
 
-            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+            this.emit(':ask', speechOutput, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -108,7 +108,7 @@ module.exports =
             });
             console.log("subtraction three called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+            this.emit(':ask', speechOutput, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -136,7 +136,7 @@ module.exports =
             });
             console.log("subtraction four called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+            this.emit(':ask', speechOutput, cardContent);
         }else{
             this.emitWithState('Unhandled');
         }
@@ -167,7 +167,7 @@ module.exports =
             });
             console.log("SubtractFromAnswer One called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+            this.emit(':ask', speechOutput, cardContent);
 
 
         }else{
@@ -199,7 +199,7 @@ module.exports =
             });
             console.log("SubtractFromAnswer Two called");
             console.log(speechOutput);
-            this.emit(':askWithCard', speechOutput, cardContent, SKILL_NAME, cardContent);
+            this.emit(':ask', speechOutput, cardContent);
 
 
         }else{
