@@ -2,7 +2,7 @@
 Advanced Calculator skill for alexa
 
 ## This is a full fledged calculator skill for alexa enabled devices
-### It's the top utitlity skill on Amazon skill store (https://www.amazon.com/s/ref=lp_13727921011_nr_n_20?fst=as%3Aoff&rh=n%3A13727921011%2Cn%3A%2113727922011%2Cn%3A14284882011&bbn=13727922011&ie=UTF8&qid=1515222753&rnid=13727922011)
+### It's the top utitlity skill on Amazon skill store [Link](https://goo.gl/HR9Ua4) 
 ### Has 48000 active users
 
 ## Features
@@ -25,6 +25,13 @@ Advanced Calculator skill for alexa
 - Saving answers to memory
 - Power or e, power of 10, power of 2
 - Degree and radian conversions
-and many more!
 
-### I'd really appreciate your help building these features
+
+
+### Contributing
+
+I would love to have your help on this! Do check out the issues dashboard of this repository, and submit a PR on any one of those issues, and I will be happy to merge! If there are no issues on the dashboard, please do feel free to create new ones!
+
+Code licensed under MIT.
+
+Copyright Anshuman Agrawal 2018.
