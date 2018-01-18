@@ -1,9 +1,9 @@
 # Calculator_Alexa
 Advanced Calculator skill for alexa
 
-## This is a full fledged calculator skill for alexa enabled devices
-### It's the top utitlity skill on Amazon skill store [Link](https://goo.gl/HR9Ua4) 
-### Has 48000 active users
+## Full fledged calculator skill for alexa enabled devices
+### Top utility skill on Amazon skill store [Link](https://goo.gl/HR9Ua4) 
+### Has over `48000` active users
 
 ## Features
 
